@@ -40,9 +40,10 @@ function handleFileSelect(evt) {
         const json = XLSX.utils.sheet_to_json(worksheet);
         
         // Convertir a formato específico y descargar
-        let formattedJson = json.map(item => {
+        let formattedJson = json.map((item, index) => {
             return {
-                    contrasena: item.contrasena,
+                    id: item.id,
+                    contrasena: item.contrasena.toString(),
                     contrasenaCh: item.contrasenaCh === 'true',
                     expediente: item.expediente,
                     grupo: item.grupo,
